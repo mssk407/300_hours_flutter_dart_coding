@@ -1,4 +1,5 @@
-import 'package:demo_camp/widget/bottom_bar_widget.dart';
+import 'package:demo_camp/widget/listview_builder.dart';
+import 'package:demo_camp/widget/story.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -6,34 +7,23 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
-          Icons.camera_alt_outlined,
-          size: 40,
-          color: Colors.grey[600],
-        ),
-        titleSpacing: 3,
         title: Text(
-          "Instagram",
+          "Builder",
           style: TextStyle(
               decoration: TextDecoration.none,
               fontFamily: "Billabong",
               fontSize: 30),
         ),
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.search,
-                size: 35,
-              )),
-          IconButton(
-              onPressed: () {},
-              icon:Image.asset("assets/images/masenger.png",width: 60,)),
-        ],
-
       ),
-      bottomNavigationBar: BottomBarWidget(),
-body: Image(image: AssetImage("assets/images/reels.png"),width: 20,),
+      body: ListView.builder(
+        scrollDirection: Axis.horizontal,
+          itemCount: 30,
+          itemBuilder: (context, index) {
+            return ListTile(
+              leading: CircleAvatar(),
+              title: Text("Item inedex NO : $index"),
+            );
+          }),
     );
   }
 }
