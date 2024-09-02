@@ -8,7 +8,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Builder",
+          "image gelary",
           style: TextStyle(
               decoration: TextDecoration.none,
               fontFamily: "Billabong",
