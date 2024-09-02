@@ -1,9 +1,12 @@
 import 'package:demo_camp/widget/bottom_bar_widget.dart';
+import 'package:demo_camp/widget/story.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double width= MediaQuery.of(context).size.width;
+    double height= MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         leading: Icon(
@@ -33,7 +36,11 @@ class HomeScreen extends StatelessWidget {
 
       ),
       bottomNavigationBar: BottomBarWidget(),
-body: Image(image: AssetImage("assets/images/reels.png"),width: 20,),
+body: Column(
+  children: [
+    Container(width: width,)
+  ],
+)
     );
   }
 }
