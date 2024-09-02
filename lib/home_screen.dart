@@ -1,5 +1,6 @@
 import 'package:demo_camp/model/user.dart';
 import 'package:demo_camp/widget/bottom_bar_widget.dart';
+import 'package:demo_camp/widget/post_widget.dart';
 import 'package:demo_camp/widget/story.dart';
 import 'package:flutter/material.dart';
 
@@ -9,12 +10,18 @@ class HomeScreen extends StatelessWidget {
     double width= MediaQuery.of(context).size.width;
     double height= MediaQuery.of(context).size.height;
     List <User> users=[];
-    HomeScreen(){
-      users.add(User(name: "mohemad", username: "mssal", imageUrl: "assets/images/me.jpg"));
-      users.add(User(name: "mohemad", username: "mssal", imageUrl: "assets/images/me.jpg"));
-      users.add(User(name: "mohemad", username: "mssal", imageUrl: "assets/images/me.jpg"));
-      users.add(User(name: "mohemad", username: "mssal", imageUrl: "assets/images/me.jpg"));
-    }
+
+    users.add(User(name: "mohemad", username: "mssal", imageUrl: "assets/images/me.jpg"));
+    users.add(User(name: "mohemad", username: "mssal", imageUrl: "assets/images/me.jpg"));
+    users.add(User(name: "mohemad", username: "mssal", imageUrl: "assets/images/me.jpg"));
+    users.add(User(name: "mohemad", username: "mssal", imageUrl: "assets/images/me.jpg"));
+    users.add(User(name: "mohemad", username: "mssal", imageUrl: "assets/images/me.jpg"));
+    users.add(User(name: "mohemad", username: "mssal", imageUrl: "assets/images/me.jpg"));
+    users.add(User(name: "mohemad", username: "mssal", imageUrl: "assets/images/me.jpg"));
+    users.add(User(name: "mohemad", username: "mssal", imageUrl: "assets/images/me.jpg"));
+    users[0].addPost(postUrl: "assets/images/me.jpg");
+    users[0].addPost(postUrl: "assets/images/me.jpg");
+    users[0].addPost(postUrl: "assets/images/me.jpg");
     return Scaffold(
       appBar: AppBar(
         leading: Icon(
@@ -46,11 +53,15 @@ class HomeScreen extends StatelessWidget {
       bottomNavigationBar: BottomBarWidget(),
 body: Column(
   children: [
-    SizedBox(height: height*0.3,
-    child: ListView.builder(itemCount:users.length ,itemBuilder: (contax,index){
+    SizedBox(height: height*0.2,
+    child: ListView.builder(
+        scrollDirection:Axis.horizontal,itemCount:users.length ,itemBuilder: (contax,index){
       return StoryWidget(profileImageUrl: users[index].imageUrl, userName: users[index].name);
 
-    }),)
+    }),),
+    Divider(color: Colors.grey,),
+    Expanded(child:  PostWidget(user: users[0]),)
+
   ],
 )
     );
